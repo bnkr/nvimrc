@@ -23,9 +23,12 @@ end
 -- Press <ca> for code actions.  We must tell vim that certain code actions
 -- exist.  Lots of useful code actions do not exist on pyright so yeah.
 vim.api.nvim_command('nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>')
+-- Press K to show documentation for the thing under cursor.
+vim.api.nvim_command('nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>')
 
 -- Tell vim how to access the code completion menu.
 vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
+
 -- Easier way to get to the code completion menu.  Doesn't really work the way
 -- I want because it wil only complete the portion of the word before the
 -- cursor.  Alo this seems to somehow trigger the old method where the scratch
