@@ -122,6 +122,22 @@ highlight iCursor term=bold ctermfg=White cterm=bold ctermbg=Red
  " Sort of works to make the cursor more visible.  Not perfect.
 set guicursor=
 
+" Vim started to refuse to close the file listing buffer unless you deleted
+" the buffer by number.  This solution seems to avoid this.
+"
+" See https://vi.stackexchange.com/questions/14622/how-can-i-close-the-netrw-buffer.
+set nohidden
+augroup netrw_buf_hidden_fix
+  autocmd!
+
+  " Set all non-netrw buffers to bufhidden=hide
+  autocmd BufWinEnter *
+        \  if &ft != 'netrw'
+        \|     set bufhidden=hide
+        \| endif
+augroup end
+
+
 " Remove trailing whitespace from files that shouldn't have them
 " Complicated formulation to avoid writing over the substitution
 " history (which kind of works).
