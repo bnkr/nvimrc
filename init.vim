@@ -18,6 +18,8 @@ Plug 'nvim-lua/completion-nvim'
 Plug 'tpope/vim-commentary'
 " Provides a better python indent by default.
 Plug 'Vimjas/vim-python-pep8-indent'
+" Terraform indent.
+Plug 'hashivim/vim-terraform'
 
 " Snippets to insert some pre-cooked code.  You need at least some of this
 " with LSP.
