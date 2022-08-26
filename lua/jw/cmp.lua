@@ -1,12 +1,11 @@
--- Configures the nvim lsp integration and completion (using cmp) the way I
--- like it.  Requires various plugins.
+-- Configures the the cmp plugin the way I like it.  Requires various plugins
+-- and assumes that the lsp is going to get configured as well.
 --
 -- Reference:
 --
 --   https://github.com/neovim/nvim-lspconfig -- basic setup
 --   https://github.com/jim-at-jibba/my-dots/blob/master/nvim/lua/my_lspconfig.lua -- james best's config.
 --   https://pastebin.com/XcJShCSb -- various handy configs
-local lsp = require('lspconfig')
 local cmp = require('cmp')
 local lspkind = require("lspkind")
 local luasnip = require('luasnip')
@@ -25,6 +24,11 @@ end
 vim.api.nvim_command('nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>')
 -- Press K to show documentation for the thing under cursor.
 vim.api.nvim_command('nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>')
+
+-- TODO:
+--   here's some other good shortcuts that might be handy:
+--
+--   https://www.integralist.co.uk/posts/neovim/
 
 -- Tell vim how to access the code completion menu.
 vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
@@ -97,12 +101,3 @@ cmp.setup({
 })
 
 lspkind.init({ with_text = false })
-
--- Part of the recommended configuration.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
--- Python language server.  It's merely OK.  Needs a lot of stubs.
-lsp.pyright.setup { 
-  on_attach = on_attach,
-  capabilities = capabilities
-}

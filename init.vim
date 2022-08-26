@@ -160,4 +160,5 @@ set completeopt+=menuone,noinsert,noselect
 " do any harm to be set for everything./
 let g:completion_metching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-lua require('jw/lsp-cmp')
+lua require('jw/cmp')
+lua require('jw/lsp-python')
