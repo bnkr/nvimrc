@@ -49,6 +49,9 @@ Plug 'hrsh7th/nvim-cmp'
 " from.  This ties in with vim-cmp.
 Plug 'onsails/lspkind-nvim'
 
+" Rust lsp tools.
+Plug 'simrat39/rust-tools.nvim'
+
 call plug#end()
 
 " Don't care about legacy vim.
@@ -121,6 +124,9 @@ highlight LineNr gui=NONE guifg=DarkGrey guibg=NONE
 highlight Cursor term=bold ctermfg=White ctermbg=Red
 highlight iCursor term=bold ctermfg=White cterm=bold ctermbg=Red
 
+" Completion popup is a bit obnoxious as pink.
+highlight Pmenu ctermbg=DarkGrey
+
  " Sort of works to make the cursor more visible.  Not perfect.
 set guicursor=
 
@@ -162,3 +168,4 @@ let g:completion_metching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 lua require('jw/cmp')
 lua require('jw/lsp-python')
+lua require('jw/lsp-rust')
