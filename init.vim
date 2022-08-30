@@ -125,7 +125,10 @@ highlight Cursor term=bold ctermfg=White ctermbg=Red
 highlight iCursor term=bold ctermfg=White cterm=bold ctermbg=Red
 
 " Completion popup is a bit obnoxious as pink.
-highlight Pmenu ctermbg=DarkGrey
+hi Pmenu guifg=fg guibg=#303030 gui=NONE cterm=NONE ctermbg=DarkGrey
+hi PmenuSbar guifg=NONE guibg=NONE gui=NONE ctermfg=NONE ctermbg=NONE cterm=NONE
+hi PmenuSel guifg=#000000 guibg=#e5e5e5 gui=NONE cterm=NONE
+hi PmenuThumb guifg=NONE guibg=#ffffff gui=NONE cterm=NONE
 
  " Sort of works to make the cursor more visible.  Not perfect.
 set guicursor=
