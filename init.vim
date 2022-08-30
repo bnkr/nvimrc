@@ -152,7 +152,7 @@ augroup end
 " Remove trailing whitespace from files that shouldn't have them
 " Complicated formulation to avoid writing over the substitution
 " history (which kind of works).
-autocmd FileType docbk,xxs,c,cpp,java,php,ruby,cmake,latex,lemon,tex,asciidoc,sh,vim,haskell,python,cucumber,terraform
+autocmd FileType docbk,xxs,c,cpp,java,php,ruby,cmake,latex,lemon,tex,asciidoc,sh,vim,haskell,python,cucumber,terraform,rust
       \ autocmd BufWritePre <buffer>
       \ :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
