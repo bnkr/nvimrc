@@ -172,3 +172,4 @@ let g:completion_metching_strategy_list = ['exact', 'substring', 'fuzzy']
 lua require('jw/cmp')
 lua require('jw/lsp-python')
 lua require('jw/lsp-rust')
+lua require('jw/lsp-terraform')
