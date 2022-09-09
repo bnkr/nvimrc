@@ -34,23 +34,23 @@ local opts = {
         assist = {
           importEnforceGranularity = true,
           importPrefix = "crate"
-          },
+        },
         cargo = {
           allFeatures = true
-          },
+        },
         checkOnSave = {
           -- default: `cargo check`
           command = "clippy"
-          },
         },
-        inlayHints = {
-          lifetimeElisionHints = {
-            enable = true,
-            useParameterNames = true
-          },
+      },
+      inlayHints = {
+        lifetimeElisionHints = {
+          enable = true,
+          useParameterNames = true
         },
-      }
-    },
+      },
+    }
+  },
 }
 
 rust.setup(opts)
