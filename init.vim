@@ -8,18 +8,26 @@ filetype plugin indent on
 " with this.
 call plug#begin(stdpath('data') . '/plugged')
 
-" Connection to language servers.  Requires install of, e.g.
-"
-"   npm i -g pyright # for python
+"""
+""" Utilities.
+"""
+
+" Defaults for to language servers.
 Plug 'neovim/nvim-lspconfig'
 " Allows completion to work (in combination with the lsp server)
 Plug 'nvim-lua/completion-nvim'
 " :Commentary function.  Comments and uncomments code.
 Plug 'tpope/vim-commentary'
-" Provides a better python indent by default.
-Plug 'Vimjas/vim-python-pep8-indent'
-" Terraform indent.
-Plug 'hashivim/vim-terraform'
+
+" The 'cmp' auto-complete system.  Better than the built-in completion
+" generally.  This is the 'recommended' configuration from the completion
+" docs.
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 " Snippets to insert some pre-cooked code.  You need at least some of this
 " with LSP.
@@ -36,21 +44,20 @@ Plug 'hashivim/vim-terraform'
 " fussed with anything else.
 Plug 'L3MON4D3/LuaSnip'
 
-" Better than the built-in completion generally.  This is the 'recommended'
-" configuration from the completion docs.
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-
 " Gives pictograms in the completion menu that say where things are coming
 " from.  This ties in with vim-cmp.
 Plug 'onsails/lspkind-nvim'
 
+"""
+""" Languages.
+"""
+
 " Rust lsp tools.
 Plug 'simrat39/rust-tools.nvim'
+" Provides a better python indent by default.
+Plug 'Vimjas/vim-python-pep8-indent'
+" Terraform indent.
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -166,7 +173,7 @@ map <S-CR> :Commentary<CR>
 " This applies to lsp completion also.
 set completeopt+=menuone,noinsert,noselect
 " Completion matching.  This is specific to the built-in completion but does't
-" do any harm to be set for everything./
+" do any harm to be set for everything.
 let g:completion_metching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 lua require('jw/cmp')
