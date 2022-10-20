@@ -1,5 +1,3 @@
-" source /usr/share/vim/vimrc
-
 " Load file specific plugins.  Note that modes usually will partly work
 " without this.
 filetype plugin indent on
@@ -110,7 +108,10 @@ set listchars=tab:»·,trail:·
 
 " Enable coloruing and set a decent scheme.
 syntax enable
-colorscheme pablo
+
+" An random update totally changed the pablo theme.  This is just a copy of
+" the one from vim 0.8.
+colorscheme pablo_legacy
 
 " I typo a lot.
 map :W :w
