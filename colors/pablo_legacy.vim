@@ -3,6 +3,10 @@
 " Vim color file
 " Maintainer:	Ron Aaron <ron@ronware.org>
 " Last Change:	2003 May 02
+"
+
+" TODO:
+"   Should rip off the nvim 0.7 version of this because it has some extra stuff.
 
 hi clear
 set background=dark
