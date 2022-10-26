@@ -24,6 +24,9 @@ end
 vim.api.nvim_command('nnoremap <silent> ca <cmd>lua vim.lsp.buf.code_action()<CR>')
 -- Press K to show documentation for the thing under cursor.
 vim.api.nvim_command('nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>')
+-- Overrule default ctags style jump to definition and use lsp for it.
+vim.api.nvim_command('noremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>')
+
 
 -- TODO:
 --   here's some other good shortcuts that might be handy:
