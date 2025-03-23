@@ -156,7 +156,6 @@ augroup netrw_buf_hidden_fix
         \| endif
 augroup end
 
-
 " Remove trailing whitespace from files that shouldn't have them
 " Complicated formulation to avoid writing over the substitution
 " history (which kind of works).
