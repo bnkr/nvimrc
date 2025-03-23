@@ -37,8 +37,8 @@ vim.cmd("setlocal omnifunc=v:lua.vim.lsp.omnifunc")
 
 -- Easier way to get to the code completion menu.  Doesn't really work the way
 -- I want because it wil only complete the portion of the word before the
--- cursor.  Alo this seems to somehow trigger the old method where the scratch
--- buffer shows up rather than doing the standard menu.  Very weird.
+-- cursor.  This might potentially be triggering a different autocomplete
+-- behaviour which is why it's not working as expected.
 vim.cmd('inoremap <c-n> <c-x><c-o>')
 
 -- Ripped off from james best.
