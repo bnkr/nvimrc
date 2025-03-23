@@ -59,7 +59,7 @@ cmp.setup({
       "i",
       "s",
     }),
-    ["<tab>"] = cmp.mapping(function(fallback)
+    ["<Down>"] = cmp.mapping(function(fallback)
       if vim.fn.pumvisible() == 1 then
         vim.fn.feedkeys(t("<c-n>"), "n")
       else
@@ -70,6 +70,7 @@ cmp.setup({
       "s",
     }),
   },
+
   -- See https://github.com/neovim/nvim-lspconfig/wiki/Snippets for ideas an
   -- examples.  This must be set proprerly of snippets (even from the LSP) will
   -- crash completion.
@@ -77,17 +78,9 @@ cmp.setup({
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
-
-    -- James Best recommends Plugin 'SirVer/ultisnips' which I can't get
-    -- working due to some sort of issue with python3 system dependencies
-    -- (probably).  luasnips is lua only so less of an issue there.
-    -- expand = function(args)
-    --   vim.fn['UltiSnips#Anon'](args.body)
-    -- end,
   },
   sources = {
     { name = "buffer" },
-    -- { name = "ultisnips" },
     { name = 'luasnip' },
     { name = "nvim_lsp" },
     { name = "path" },
