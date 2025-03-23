@@ -7,7 +7,6 @@
 --   https://github.com/jim-at-jibba/my-dots/blob/master/nvim/lua/my_lspconfig.lua -- james best's config.
 --   https://pastebin.com/XcJShCSb -- various handy configs
 local cmp = require('cmp')
-local lspkind = require("lspkind")
 local luasnip = require('luasnip')
 
 -- this might come in handy to avoid us needing to faff about with venv manually.
@@ -45,12 +44,6 @@ vim.cmd('inoremap <c-n> <c-x><c-o>')
 -- Ripped off from james best.
 cmp.setup({
   confirmation = { default_behavior = cmp.ConfirmBehavior.Replace },
-  formatting = {
-    format = function(_, item)
-      item.kind = lspkind.presets.default[item.kind]
-      return item
-    end,
-  },
   mapping = {
     ["<cr>"] = cmp.mapping.confirm(),
     ["<m-cr>"] = cmp.mapping.confirm({ select = true }),
@@ -102,5 +95,3 @@ cmp.setup({
     { name = "cmp_tabnine" },
   },
 })
-
-lspkind.init({ with_text = false })
