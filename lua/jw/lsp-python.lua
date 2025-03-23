@@ -7,7 +7,7 @@ local lsp = require('lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
 -- Part of the recommended configuration.  I have no idea what this does.
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Python language server.  It's merely OK.  Needs a lot of stubs.
 lsp.pyright.setup { 

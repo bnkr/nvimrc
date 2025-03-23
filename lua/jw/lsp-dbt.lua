@@ -27,7 +27,7 @@ if not configs.dbt then
 end
 
 -- Part of the recommended configuration.  I have no idea what this does.
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = cmp_nvim_lsp.default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- "Errror" referencing nil value.
 -- lspconfig.dbt.setup {
