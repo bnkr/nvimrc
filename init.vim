@@ -12,8 +12,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
 " Defaults for to language servers.
 Plug 'neovim/nvim-lspconfig'
-" Allows completion to work (in combination with the lsp server)
-Plug 'nvim-lua/completion-nvim'
 " :Commentary function.  Comments and uncomments code.
 Plug 'tpope/vim-commentary'
 
