@@ -163,6 +163,9 @@ autocmd FileType docbk,xxs,c,cpp,java,php,ruby,cmake,latex,lemon,tex,asciidoc,sh
       \ autocmd BufWritePre <buffer>
       \ :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
+" Copilot is extremely irritating on text files.
+autocmd FileType rst,text let b:copilot_enabled = v:false
+
 " Let me indent with tab.
 map <Tab> >0
 map <S-Tab> <0
