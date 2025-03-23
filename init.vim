@@ -64,8 +64,9 @@ set nocompatible
 " Do shell-like completion (ie, pop up a list instead of iterating all the
 " matches with tab.
 set wildmode=longest,list
-" For auto-complete, show a menu (even for one match), and preview the change.
-set completeopt=menuone,preview
+" For auto-complete show a menu (even for one match).  Important to have
+" `preview` removed from this or you get the scratch buffer intermitently.
+set completeopt=menuone
 " Enable indenting.
 set autoindent
 " C commenting:
