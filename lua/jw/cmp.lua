@@ -43,33 +43,18 @@ vim.cmd('inoremap <c-n> <c-x><c-o>')
 
 -- Ripped off from james best.
 cmp.setup({
+
   confirmation = { default_behavior = cmp.ConfirmBehavior.Replace },
-  mapping = {
-    ["<cr>"] = cmp.mapping.confirm(),
-    ["<m-cr>"] = cmp.mapping.confirm({ select = true }),
-    -- TODO:
-    --   I want this to select the entry but this just exits the menu.
-    ["<s-tab>"] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t("<c-p>"), "n")
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
-    ["<Down>"] = cmp.mapping(function(fallback)
-      if vim.fn.pumvisible() == 1 then
-        vim.fn.feedkeys(t("<c-n>"), "n")
-      else
-        fallback()
-      end
-    end, {
-      "i",
-      "s",
-    }),
-  },
+
+  -- Keymaps copied from the default.  With some of these wrong it doesn't work
+  -- at all.
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
 
   -- See https://github.com/neovim/nvim-lspconfig/wiki/Snippets for ideas an
   -- examples.  This must be set proprerly of snippets (even from the LSP) will
@@ -79,12 +64,15 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
+
   sources = {
     { name = "buffer" },
     { name = 'luasnip' },
     { name = "nvim_lsp" },
     { name = "path" },
     { name = "spell" },
-    { name = "cmp_tabnine" },
+
+    -- Some AI bot I don't need.
+    -- { name = "cmp_tabnine" },
   },
 })
