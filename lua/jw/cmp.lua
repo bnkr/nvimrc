@@ -49,11 +49,19 @@ cmp.setup({
   -- Keymaps copied from the default.  With some of these wrong it doesn't work
   -- at all.
   mapping = cmp.mapping.preset.insert({
+    -- Not too useful as arrows work fine.  Just press K twice per above and
+    -- then q to exit the popup.
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    -- Complete an existing line while in insert mode.  This works to
+    -- auto-import an existing line.
     ['<C-Space>'] = cmp.mapping.complete(),
+    -- You can abort without exiting insert move.
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    -- Accept currently selected item. Set `select` to `false` to only confirm
+    -- explicitly selected items.  Arrow keys are selecting the option,
+    -- presumably as part of the preset.
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
 
   -- See https://github.com/neovim/nvim-lspconfig/wiki/Snippets for ideas an
